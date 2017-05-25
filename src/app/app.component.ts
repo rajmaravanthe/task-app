@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { ListService } from "./service/list.service";
+import { DropDownService } from "./service/drop-down.service";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: 'app.component.html',
+  styleUrls: ['./app.component.css'],
+  providers: [ListService]
 })
-export class AppComponent {
-  title = 'app works!';
+export class RootComponent {
+  //constructor(){}
 }

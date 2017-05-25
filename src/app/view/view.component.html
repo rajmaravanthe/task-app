@@ -1,0 +1,21 @@
+<div *ngIf="List.length > 0">
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody  *ngIf="List.length>0" > 
+        <tr *ngFor="let item of List; let i = index" appEvents>
+          <td><a routerLink="/add/{{i}}">{{item.title | capital}}</a></td>
+          <td>{{item.description | capital}}</td>
+          <td>{{item.date | date: 'dd/MM/yyyy'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

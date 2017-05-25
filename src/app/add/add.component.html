@@ -1,0 +1,47 @@
+ <form #f="ngForm" (ngSubmit)="submit(f.value,f.valid)" novalidate autocomplete="off">
+      <div class="form-group">
+        <input type="text" name="title" class="form-control" placeholder="Title" [(ngModel)]="userDetail.title" maxlength="12" minlength="4" (change)="checkChar(refTitle)"
+          required #refTitle='ngModel'>
+        <div *ngIf="refTitle.errors && (refTitle.dirty || refTitle.touched)" class="alert alert-danger">
+          <div [hidden]="!refTitle.errors.required">
+            Title is required
+          </div>
+          <div [hidden]="!refName.errors.minlength">
+            Title must be at least 4 characters long.
+          </div>
+          <div [hidden]="!refName.errors.maxlength">
+            Title cannot be more than 12 characters long.
+          </div>
+          <div [hidden]="nameInChar" class="alert alert-danger">
+            Title should be in character
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" name="description" class="form-control" placeholder="Description" [(ngModel)]="userDetail.description" maxlength="12" minlength="4" (change)="checkChar(refDescription)"
+          required #refDescription='ngModel'>
+        <div *ngIf="refDescription.errors && (refDescription.dirty || refDescription.touched)" class="alert alert-danger">
+          <div [hidden]="!refDescription.errors.required">
+            Description is required
+          </div>
+          <div [hidden]="!refDescription.errors.minlength">
+            Description must be at least 4 characters long.
+          </div>
+          <div [hidden]="!refDescription.errors.maxlength">
+            Description cannot be more than 12 characters long.
+          </div>
+          <div [hidden]="descriptionInChar" class="alert alert-danger">
+            Description should be in character
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="date" name="date" data-date=""  data-date-format="MM DD YYYY" class="form-control" [(ngModel)]="userDetail.date" required #refdate='ngModel'>
+        <div [hidden]="refdate.valid || refdate.pristine" class="alert alert-danger">
+          Date is required
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
